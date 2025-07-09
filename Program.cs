@@ -11,8 +11,8 @@ namespace RoboProgramLauncher
     internal static class Program
     {
         const string NotePadExeName = "notepad.exe";
-        const string FileNameSrc = "./SourceCode.txt";
-        const string FileNameDoc = "./Document.txt";
+        const string FileNameSrc = "./Debug/SourceCode.txt";
+        const string FileNameDoc = "./Debug/Document.txt";
 
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
