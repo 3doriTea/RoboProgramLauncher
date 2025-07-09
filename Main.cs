@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace RoboProgramLauncher
     {
         //const string FileName = "./ShipEnginner.exe";
         const string FileName = "D://GE2A40/workspace/Yokosuku/x64/Debug/ShipEnginner.exe";
+        const string ErrorLogFileName = "ErrorLog.txt";
         private Process _gameProcess = null;  // RoboProgram のゲームプロセス
         private delegate void UpdateButton();
         private delegate void ShowErrorMessage();
@@ -64,6 +66,10 @@ namespace RoboProgramLauncher
             bootButton.Enabled = false;
             WindowState = FormWindowState.Minimized;
             BootGame();
+            //if (File.Exists(ErrorLogFileName))
+            //{
+            //    File.Delete(ErrorLogFileName);
+            //}
         }
 
         /// <summary>
