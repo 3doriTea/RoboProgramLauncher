@@ -40,7 +40,7 @@
 			// 
 			this.docButton.Image = global::RoboProgramLauncher.Properties.Resources.DocButton;
 			this.docButton.Location = new System.Drawing.Point(700, 600);
-			this.docButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.docButton.Margin = new System.Windows.Forms.Padding(2);
 			this.docButton.Name = "docButton";
 			this.docButton.Size = new System.Drawing.Size(350, 80);
 			this.docButton.TabIndex = 3;
@@ -51,7 +51,7 @@
 			// 
 			this.codeButton.Image = global::RoboProgramLauncher.Properties.Resources.EditButton;
 			this.codeButton.Location = new System.Drawing.Point(230, 600);
-			this.codeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.codeButton.Margin = new System.Windows.Forms.Padding(2);
 			this.codeButton.Name = "codeButton";
 			this.codeButton.Size = new System.Drawing.Size(350, 80);
 			this.codeButton.TabIndex = 2;
@@ -62,7 +62,7 @@
 			// 
 			this.bootButton.Image = global::RoboProgramLauncher.Properties.Resources.BootButton;
 			this.bootButton.Location = new System.Drawing.Point(410, 440);
-			this.bootButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.bootButton.Margin = new System.Windows.Forms.Padding(2);
 			this.bootButton.Name = "bootButton";
 			this.bootButton.Size = new System.Drawing.Size(460, 110);
 			this.bootButton.TabIndex = 0;
@@ -73,7 +73,7 @@
 			// 
 			this.pictureBox1.BackgroundImage = global::RoboProgramLauncher.Properties.Resources.Background;
 			this.pictureBox1.Location = new System.Drawing.Point(-6, -1);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(1280, 720);
 			this.pictureBox1.TabIndex = 1;
@@ -88,8 +88,9 @@
 			this.Controls.Add(this.codeButton);
 			this.Controls.Add(this.bootButton);
 			this.Controls.Add(this.pictureBox1);
+			this.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "Main";
 			this.Text = "RoboProgram Launcher";
 			this.Load += new System.EventHandler(this.Main_Load);

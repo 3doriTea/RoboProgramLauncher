@@ -33,7 +33,7 @@ namespace RoboProgramLauncher
         {
             try
             {
-                Process.Start(NotePadExeName, "./Document.txt");
+                Process.Start(NotePadExeName, FileNameDoc);
             }
             catch
             {

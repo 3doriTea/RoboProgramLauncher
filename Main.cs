@@ -20,12 +20,22 @@ namespace RoboProgramLauncher
 		const string CurrentDir = "./Debug/";
 		//const string FileName = "D://GE2A40/workspace/Yokosuku/x64/Debug/ShipEnginner.exe";
 		//const string FileName = "N:/workhome/ShipEnginner/x64/Debug/ShipEnginner.exe";
-		const string ErrorLogFileName = "ErrorLog.txt";
+		public const string ErrorLogFileName = "./Debug/ErrorLog.txt";
 		private Process _gameProcess = null;  // RoboProgram のゲームプロセス
 		private delegate void UpdateButton();
 		private delegate void ShowErrorMessage();
 		private Size _prevSize;
 		private ErrorBox _errorBox = null;
+
+		enum ErrorCode : int
+		{
+			Success = 0,
+			Lexical = -3101,  // 字句エラー
+			Syntax = -3102,  // 構文エラー
+			Semantic = -3103,  // 文法エラー
+			StackOverflow = -1073741571,  // スタックオーバーフロー
+			AccessViolation = -1073741819,  // アクセス違反
+		}
 
 		public Main()
 		{
@@ -75,7 +85,7 @@ namespace RoboProgramLauncher
 				using (var clinet = new WebClient())
 				{
 					clinet.DownloadFile(
-						"https://github.com/3doriTea/RoboProgram/raw/master/Public/RoboProgram.zip",
+						"https://github.com/3doriTea/RoboProgram/raw/with-launcher/Public/RoboProgram.zip",
 						zipTmpDest);
 				}
 
@@ -104,6 +114,11 @@ namespace RoboProgramLauncher
 		{
 			Invoke(new UpdateButton(() =>
 			{
+				if (_errorBox != null)
+				{
+					_errorBox.Close();
+					_errorBox.Dispose();
+				}
 				RefreshButtons();
 				bootButton.Enabled = true;
 				WindowState = FormWindowState.Normal;
@@ -112,12 +127,34 @@ namespace RoboProgramLauncher
 
 			if (_gameProcess.ExitCode == 0)
 			{
-				Console.WriteLine("Proc Exit OK.");
-				//BootGame();
-				return;
+				return;  // ok
 			}
 
-			Console.WriteLine("Proc Exit NOOOOOOOO.");
+			Console.WriteLine($"ErrorCode:{_gameProcess.ExitCode}");
+
+			// エラーメッセージを書く
+			void WriteError(string message)
+			{
+				File.WriteAllBytes(ErrorLogFileName, Encoding.GetEncoding("Shift-JIS").GetBytes(message));
+			}
+
+			switch ((ErrorCode)_gameProcess.ExitCode)
+			{
+				case ErrorCode.AccessViolation:
+					WriteError("不明なエラーです。文法に誤りがないか、抜けがないか確認してください。");
+					break;
+				case ErrorCode.StackOverflow:
+					WriteError("不明なエラーです。使えない文字を使用していないか確認してください。");
+					break;
+				case ErrorCode.Lexical:
+				case ErrorCode.Syntax:
+				case ErrorCode.Semantic:
+					break;
+				default:
+					WriteError("不明なエラーです。使えない文字を使用していないか確認してください。");
+					BootGame();
+					return;
+			}
 
 			Invoke(new ShowErrorMessage(() =>
 			{
