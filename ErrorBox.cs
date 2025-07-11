@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.IO;
+﻿using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RoboProgramLauncher
 {
     public partial class ErrorBox : Form
     {
-        private static string _errorMessage;
-
         public ErrorBox()
         {
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;  // 最大化拒否
+            MinimizeBox = false;  // 最小化拒否
             InitializeComponent();
             messageBox.Text = Encoding.GetEncoding("Shift-JIS").GetString(File.ReadAllBytes(Main.ErrorLogFileName));
         }
