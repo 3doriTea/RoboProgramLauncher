@@ -34,6 +34,7 @@
 			this.codeButton = new System.Windows.Forms.Button();
 			this.bootButton = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.homeBugReportButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -90,11 +91,22 @@
 			this.pictureBox1.TabIndex = 1;
 			this.pictureBox1.TabStop = false;
 			// 
+			// homeBugReportButton
+			// 
+			this.homeBugReportButton.Image = global::RoboProgramLauncher.Properties.Resources.BugReport;
+			this.homeBugReportButton.Location = new System.Drawing.Point(1082, 12);
+			this.homeBugReportButton.Name = "homeBugReportButton";
+			this.homeBugReportButton.Size = new System.Drawing.Size(170, 40);
+			this.homeBugReportButton.TabIndex = 5;
+			this.homeBugReportButton.UseVisualStyleBackColor = true;
+			this.homeBugReportButton.Click += new System.EventHandler(this.HomeBugReportButton_Click);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1264, 721);
+			this.Controls.Add(this.homeBugReportButton);
 			this.Controls.Add(this.resetButton);
 			this.Controls.Add(this.docButton);
 			this.Controls.Add(this.codeButton);
@@ -118,6 +130,7 @@
         private System.Windows.Forms.Button codeButton;
         private System.Windows.Forms.Button docButton;
 		private System.Windows.Forms.Button resetButton;
+		private System.Windows.Forms.Button homeBugReportButton;
 	}
 }
 

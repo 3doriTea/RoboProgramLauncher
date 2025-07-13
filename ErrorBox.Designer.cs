@@ -31,6 +31,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorBox));
 			this.messageBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.bugReportButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// messageBox
@@ -55,12 +56,23 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "以下のエラーを修正してください。\r\n編集後は起動して確かめてください。\r\n";
 			// 
+			// bugReportButton
+			// 
+			this.bugReportButton.Image = global::RoboProgramLauncher.Properties.Resources.BugReport;
+			this.bugReportButton.Location = new System.Drawing.Point(418, 9);
+			this.bugReportButton.Name = "bugReportButton";
+			this.bugReportButton.Size = new System.Drawing.Size(170, 40);
+			this.bugReportButton.TabIndex = 2;
+			this.bugReportButton.UseVisualStyleBackColor = true;
+			this.bugReportButton.Click += new System.EventHandler(this.BugReportButton_Click);
+			// 
 			// ErrorBox
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.MenuHighlight;
 			this.ClientSize = new System.Drawing.Size(600, 360);
+			this.Controls.Add(this.bugReportButton);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.messageBox);
 			this.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -77,5 +89,6 @@
 
 		private System.Windows.Forms.TextBox messageBox;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button bugReportButton;
 	}
 }
