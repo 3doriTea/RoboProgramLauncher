@@ -29,12 +29,23 @@
         private void InitializeComponent()
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+			this.resetButton = new System.Windows.Forms.Button();
 			this.docButton = new System.Windows.Forms.Button();
 			this.codeButton = new System.Windows.Forms.Button();
 			this.bootButton = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// resetButton
+			// 
+			this.resetButton.Image = global::RoboProgramLauncher.Properties.Resources.ResetButton;
+			this.resetButton.Location = new System.Drawing.Point(1112, 659);
+			this.resetButton.Name = "resetButton";
+			this.resetButton.Size = new System.Drawing.Size(140, 50);
+			this.resetButton.TabIndex = 4;
+			this.resetButton.UseVisualStyleBackColor = true;
+			this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
 			// 
 			// docButton
 			// 
@@ -84,6 +95,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1264, 721);
+			this.Controls.Add(this.resetButton);
 			this.Controls.Add(this.docButton);
 			this.Controls.Add(this.codeButton);
 			this.Controls.Add(this.bootButton);
@@ -105,6 +117,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button codeButton;
         private System.Windows.Forms.Button docButton;
-    }
+		private System.Windows.Forms.Button resetButton;
+	}
 }
 

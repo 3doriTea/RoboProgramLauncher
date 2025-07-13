@@ -16,6 +16,7 @@ namespace RoboProgramLauncher
 {
 	public partial class Main : Form
 	{
+		const string GameDirName = "./Debug/";
 		const string FileName = "./Debug/ShipEnginner.exe";
 		const string CurrentDir = "./Debug/";
 		//const string FileName = "D://GE2A40/workspace/Yokosuku/x64/Debug/ShipEnginner.exe";
@@ -186,6 +187,7 @@ namespace RoboProgramLauncher
 			}
 			docButton.Enabled = Program.ExisFileDoc();
 			codeButton.Enabled = Program.ExisFileSrc();
+			resetButton.Visible = Directory.Exists(GameDirName);
 		}
 
 		private void DocButton_Click(object sender, EventArgs e)
@@ -196,6 +198,15 @@ namespace RoboProgramLauncher
 		private void CodeButton_Click(object sender, EventArgs e)
 		{
 			Program.TryOpenSrc();
+		}
+
+		private void ResetButton_Click(object sender, EventArgs e)
+		{
+			if (Directory.Exists(GameDirName))
+			{
+				Directory.Delete(GameDirName, true);
+			}
+			RefreshButtons();
 		}
 	}
 }
